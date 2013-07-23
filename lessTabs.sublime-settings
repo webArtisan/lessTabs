@@ -1,0 +1,7 @@
+{
+  // Files modified in the last N seconds are kept open
+  "modified_life_span": 1800,
+
+  // Files accessed in the last N seconds are kept open as well
+  "accessed_life_span": 60
+}

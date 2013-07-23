@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "Less tabs: close old tabs",
+        "command": "less_tabs"
+    }
+]
