@@ -11,15 +11,17 @@ Files with unsaved changes will not be closed.
 Files that were visited in the last minute will not be closed. (customize from settings)
 
 ##Installation
+### Now available through [Package Control](http://wbond.net/sublime_packages/package_control)!
+The easiest method is through [Package Control](http://wbond.net/sublime_packages/package_control). Open the command palette with <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> (Windows/Linux) or <kbd>⌘</kbd><kbd>Shift</kbd><kbd>P</kbd> (OSX) and type `pci` or `packconin` or whatever you like to get `Package Control: Install` showing. Click or hit <kbd>Enter</kbd>, type in `less` or `less tabs` ... and then hit <kbd>Enter</kbd>.
+
+#### Manual install
 Clone or download this repo to your **Packages** folder.
 
 To easily open **Packages** folder, open sublime text then open the following menu `Preferences -> Browse Packages...`.
 
-You can clone the repo with git
+You can always clone the repo with git
 
     git clone git://github.com/webArtisan/lessTabs.git
-
-**At the moment the package is not availabe through package control.**
 
 ##Usage
 
