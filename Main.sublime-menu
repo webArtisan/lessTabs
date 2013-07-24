@@ -18,7 +18,7 @@
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/less Tabs/lessTabs.sublime-settings"
+                                    "file": "${packages}/Less Tabs/lessTabs.sublime-settings"
                                 },
                                 "caption": "Settings – Default"
                             },
@@ -34,7 +34,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/less Tabs/Default (OSX).sublime-keymap",
+                                    "file": "${packages}/Less Tabs/Default (OSX).sublime-keymap",
                                     "platform": "OSX"
                                 },
                                 "caption": "Key Bindings – Default"
@@ -42,7 +42,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/less Tabs/Default (Linux).sublime-keymap",
+                                    "file": "${packages}/Less Tabs/Default (Linux).sublime-keymap",
                                     "platform": "Linux"
                                 },
                                 "caption": "Key Bindings – Default"
@@ -50,7 +50,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/less Tabs/Default (Windows).sublime-keymap",
+                                    "file": "${packages}/Less Tabs/Default (Windows).sublime-keymap",
                                     "platform": "Windows"
                                 },
                                 "caption": "Key Bindings – Default"
