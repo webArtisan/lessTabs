@@ -2,6 +2,6 @@
     { 
       "id": "less_tabs",
     	"command": "less_tabs",
-    	"caption": "Close Unused Files"
+    	"caption": "Close Old tabs"
     }
 ]
