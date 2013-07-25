@@ -2,6 +2,6 @@
     { 
       "id": "less_tabs",
     	"command": "less_tabs",
-    	"caption": "Close Old tabs"
+    	"caption": "Close old tabs"
     }
 ]
