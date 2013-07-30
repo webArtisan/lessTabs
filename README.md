@@ -10,6 +10,18 @@ Files with unsaved changes will not be closed.
 
 Files that were visited in the last minute will not be closed. (customize from settings)
 
+##Features
+
+- Close old and unused tabs with a simple shortcut.
+
+- By setting the value of the setting value "close_on_open_new" to true, the plugin will execute the closing command when a new tab is opened.
+
+- Close unrelated tabs to the open project.
+
+- Close unrelated tabs to the directory of the current open tab (tab with focus).
+
+- Close unrelated tabs to a user input directory.
+
 ##Installation
 ### Now available through [Package Control](http://wbond.net/sublime_packages/package_control)!
 The easiest method is through [Package Control](http://wbond.net/sublime_packages/package_control). Open the command palette with <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> (Windows/Linux) or <kbd>⌘</kbd><kbd>Shift</kbd><kbd>P</kbd> (OSX) and type `pci` or `packconin` or whatever you like to get `Package Control: Install` showing. Click or hit <kbd>Enter</kbd>, type in `less` or `less tabs` ... and then hit <kbd>Enter</kbd>.
@@ -25,19 +37,15 @@ You can always clone the repo with git
 
 ##Usage
 
-The default shortcut for closing tabs using lessTabs plugin is `ctrl + alt + c`.
+The default shortcut for closing tabs is `ctrl + alt + c`.
 
-There is also a command in the command palette `Less tabs: close old tabs`
+The default shortcut for closing unrelated tabs to the open project is `ctrl + alt + u + p`.
 
-##Features
+The default shortcut for closing unrelated tabs to the directory of the current open tab is `ctrl + alt + u + t`.
 
-- By setting the value of the setting value "close_on_open_new" to true, the plugin will execute the closing command when a new tab is opened.
+The default shortcut for closing unrelated tabs to a user input directory is `ctrl + alt + u + d`.
 
-- Close unrelated tabs to the open project.
-
-- Close unrelated tabs to the directory of the current open tab (tab with focus).
-
-- Close unrelated tabs to a user input directory.
+There is also a command for each feature in the command palette, all you need to do is open your command palette and start typing `Less tabs`
 
 ##Stay tuned
 
