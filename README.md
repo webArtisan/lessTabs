@@ -29,6 +29,10 @@ The default shortcut for closing tabs using lessTabs plugin is `ctrl + alt + c`.
 
 There is also a command in the command palette `Less tabs: close old tabs`
 
+##Features
+
+- By setting the value of the setting value "close_on_open_new" to true, the plugin will execute the closing command when a new tab is opened.
+
 ##Stay tuned
 
 I'm working on another package called **moreTabs**, that will help you open closed tabs in a much easier way.
