@@ -33,6 +33,12 @@ There is also a command in the command palette `Less tabs: close old tabs`
 
 - By setting the value of the setting value "close_on_open_new" to true, the plugin will execute the closing command when a new tab is opened.
 
+- Close unrelated tabs to the open project.
+
+- Close unrelated tabs to the directory of the current open tab (tab with focus).
+
+- Close unrelated tabs to a user input directory.
+
 ##Stay tuned
 
 I'm working on another package called **moreTabs**, that will help you open closed tabs in a much easier way.

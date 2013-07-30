@@ -1,7 +1,25 @@
 [
-    { 
-      "id": "less_tabs",
-    	"command": "less_tabs",
-    	"caption": "Close old tabs"
+    { "caption": "-" }
+    ,
+    {
+      "id" : "less_tabs",
+      "caption" : "Less Tabs",
+      "children" : 
+      [
+        { 
+          "command": "less_tabs",
+          "caption": "Close Old Tabs"
+        }
+        ,
+        { 
+          "command": "less_tabs_close_file_dir_unrelated",
+          "caption": "Close Tabs Unrelated To Current Tab Directory"
+        }
+        ,
+        { 
+          "command": "less_tabs_close_project_unrelated",
+          "caption": "Close Tabs Unrelated To Current Project"
+        }
+      ]
     }
 ]

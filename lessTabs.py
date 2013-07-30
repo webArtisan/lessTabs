@@ -1,4 +1,35 @@
-import sublime, sublime_plugin, os, time
+import sublime, sublime_plugin, os, time, re
+
+class WM:
+  def get_project_folder(window):
+    project_folders = [] 
+    if ( WM.has_project(window) ):
+      for folder_data in window.project_data()["folders"]:
+        project_folders.append(folder_data['path'])
+
+    return project_folders
+
+  def has_project(window):
+    return window.project_data() != None
+
+  def file_belongs_to_path(buffer, parent_folders, related_paths):
+    file_in_project = False
+    file_dir = os.path.dirname(buffer.file_name())
+    if ( not file_dir in related_paths ):
+      for folder in parent_folders:
+        if ( file_dir.startswith(folder) ):
+          related_paths.append(file_dir)
+          file_in_project = True
+          break
+    else:
+      file_in_project = True
+
+    return file_in_project, related_paths
+
+  def close_buffer(window, buffer):
+    window.focus_view(buffer)
+    window.run_command('close_file')
+
 
 class lessTabsCommand(sublime_plugin.WindowCommand):
   def run(self):
@@ -18,12 +49,67 @@ class lessTabsCommand(sublime_plugin.WindowCommand):
         and not buffer.is_scratch()
         and not buffer.is_dirty()
         and path
-        and os.path.exists(path) == True
+        and os.path.exists(path)
         and now - os.path.getmtime(path) > modified_ls
         and now - os.path.getatime(path) > accessed_ls
       ):
-        self.window.focus_view(buffer)
-        self.window.run_command('close_file')
+        WM.close_buffer(self.window, buffer)
+
+
+class lessTabsCloseProjectUnrelatedCommand(sublime_plugin.WindowCommand):
+  def run(self):
+  
+    window = self.window
+
+    if ( WM.has_project(window) ):
+      related_paths = []
+      project_folders = WM.get_project_folder(window)
+
+      for buffer in window.views():
+        file_in_project, related_paths = WM.file_belongs_to_path(buffer, project_folders, related_paths)
+
+        if ( not file_in_project ):
+          WM.close_buffer(window, buffer)
+    else:
+      sublime.status_message("Less Tabs : There is no open project.")
+
+
+class lessTabsCloseDirUnrelatedCommand(sublime_plugin.WindowCommand):
+  def run(self):
+      self.window.show_input_panel("Directory of the tabs to keep open", "", self.on_done, None, None)
+
+  def on_done(self, input):
+    if ( os.path.exists(input) ):
+      related_paths = []
+      for buffer in self.window.views():
+        file_in_dir, related_paths = WM.file_belongs_to_path(buffer, [input], related_paths)
+
+        if ( not file_in_dir ):
+          WM.close_buffer(self.window, buffer)
+    else:
+      sublime.error_message('Less Tabs : directory "'+input+'" not found.')
+      self.window.run_command('less_tabs_close_dir_unrelated')
+
+
+class lessTabsCloseFileDirUnrelatedCommand(sublime_plugin.WindowCommand):
+  def run(self):
+    window = self.window
+    active_view = window.active_view()
+
+    if ( not active_view.is_scratch() ):
+      file_path = active_view.file_name()
+      if ( file_path and os.path.exists(file_path) ):
+        related_paths = []
+        for buffer in window.views():
+          file_in_dir, related_paths = WM.file_belongs_to_path(buffer, [os.path.dirname(file_path)], related_paths)
+
+          if ( not file_in_dir ):
+            WM.close_buffer(window, buffer)
+      else:
+        sublime.message_error('Less Tabs : file "'+file_path+'" not found.')
+    else:
+      sublime.message_error('Less Tabs : current file doesn\'t exist on physical drive.')
+
 
 class lessTabsEvents(sublime_plugin.EventListener):
   def on_new(self, view):
