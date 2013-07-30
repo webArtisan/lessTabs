@@ -3,5 +3,8 @@
   "modified_life_span": 1800,
 
   // Files accessed in the last N seconds are kept open as well
-  "accessed_life_span": 60
+  "accessed_life_span": 60,
+
+  // If true the command of closing tabs will be executed when a new tab is opened
+  "close_on_open_new" : false
 }
