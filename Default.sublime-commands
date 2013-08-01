@@ -5,17 +5,17 @@
     }
     ,
     {
-        "caption": "Less tabs: Close Tabs Unrelated To Current Project",
+        "caption": "Less Tabs: Close Tabs Unrelated To Current Project",
         "command": "less_tabs_close_project_unrelated"
     }
     ,
     {
-        "caption": "Less tabs: Close Tabs Unrelated To Current Tab Directory",
+        "caption": "Less Tabs: Close Tabs Unrelated To Current Tab Directory",
         "command": "less_tabs_close_file_dir_unrelated"
     }
     ,
     {
-        "caption": "Less tabs: Close Tabs Unrelated To Directory",
+        "caption": "Less Tabs: Close Tabs Unrelated To Directory",
         "command": "less_tabs_close_dir_unrelated"
     }
 ]
