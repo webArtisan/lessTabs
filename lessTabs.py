@@ -14,15 +14,18 @@ class WM:
 
   def file_belongs_to_path(buffer, parent_folders, related_paths):
     file_in_project = False
-    file_dir = os.path.dirname(buffer.file_name())
-    if ( not file_dir in related_paths ):
-      for folder in parent_folders:
-        if ( file_dir.startswith(folder) ):
-          related_paths.append(file_dir)
-          file_in_project = True
-          break
-    else:
-      file_in_project = True
+    path = buffer.file_name()
+    
+    if ( path ):
+      file_dir = os.path.dirname(path)
+      if ( not file_dir in related_paths ):
+        for folder in parent_folders:
+          if ( file_dir.startswith(folder) ):
+            related_paths.append(file_dir)
+            file_in_project = True
+            break
+      else:
+        file_in_project = True
 
     return file_in_project, related_paths
 
@@ -42,7 +45,7 @@ class lessTabsCommand(sublime_plugin.WindowCommand):
 
     for buffer in self.window.views():
       path = buffer.file_name()
-      
+
       if (
         buffer != active_view
         and not buffer.is_loading()
@@ -95,9 +98,9 @@ class lessTabsCloseFileDirUnrelatedCommand(sublime_plugin.WindowCommand):
   def run(self):
     window = self.window
     active_view = window.active_view()
-
-    if ( not active_view.is_scratch() ):
-      file_path = active_view.file_name()
+    file_path = active_view.file_name()
+    
+    if ( file_path ):
       if ( file_path and os.path.exists(file_path) ):
         related_paths = []
         for buffer in window.views():
@@ -108,7 +111,7 @@ class lessTabsCloseFileDirUnrelatedCommand(sublime_plugin.WindowCommand):
       else:
         sublime.error_message('Less Tabs : file "'+file_path+'" not found.')
     else:
-      sublime.error_message('Less Tabs : current file doesn\'t exist on physical drive.')
+      sublime.error_message('Less Tabs : current tab doesn\'t exist on a physical drive.')
 
 
 class lessTabsEvents(sublime_plugin.EventListener):
