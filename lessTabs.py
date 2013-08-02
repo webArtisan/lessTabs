@@ -106,9 +106,9 @@ class lessTabsCloseFileDirUnrelatedCommand(sublime_plugin.WindowCommand):
           if ( not file_in_dir ):
             WM.close_buffer(window, buffer)
       else:
-        sublime.message_error('Less Tabs : file "'+file_path+'" not found.')
+        sublime.error_message('Less Tabs : file "'+file_path+'" not found.')
     else:
-      sublime.message_error('Less Tabs : current file doesn\'t exist on physical drive.')
+      sublime.error_message('Less Tabs : current file doesn\'t exist on physical drive.')
 
 
 class lessTabsEvents(sublime_plugin.EventListener):
